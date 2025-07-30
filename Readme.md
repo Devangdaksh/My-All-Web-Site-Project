@@ -1,7 +1,7 @@
 # 🌐 My All Web Site Project
 
 A collection of modern, responsive web tools and generators built with **HTML**, **CSS**, and **JavaScript**.  
-Includes time management apps and QR/BAR code generators.
+Includes time management apps, QR/BAR code generators, and a weather forecast app.
 
 ---
 
@@ -21,6 +21,21 @@ QRandBAR.code.generater/
   ├── QRcode.html / qrcode.js
   ├── Barcode.html / barcode.js
   └── README.md
+
+Weather.site/
+  ├── Weather.html
+  ├── Weather.js
+  ├── images/
+      ├── clear.png
+      ├── clouds.png
+      ├── drizzle.png
+      ├── humidity.png
+      ├── mist.png
+      ├── rain.png
+      ├── search.png
+      ├── snow.png
+      └── wind.png
+  └── readme.md
 ```
 
 ---
@@ -39,6 +54,7 @@ QRandBAR.code.generater/
 2. Open any HTML file in your browser:
    - `clock.site/homepage.html` for time management tools (Alarm, Timer, Stopwatch, Clock).
    - `QRandBAR.code.generater/homepage.html` for QR/BAR code generators.
+   - `Weather.site/Weather.html` for the weather forecast app.
 3. No build step or server required—just open and use!
 
 ---
@@ -50,6 +66,7 @@ QRandBAR.code.generater/
 - 🌗 **Dark/Light mode toggle**
 - 📱 **Responsive design**
 - 📷 **QR & BAR code generator with download**
+- 🌦️ **Live weather forecast with autocomplete**
 - 🔗 **Social media links**
 
 ---
@@ -66,4 +83,4 @@ Created by **Devang**
 
 ## 📄 License
 
-This project is for educational use. Feel free
+This project is for educational use. Feel free to use, modify, and distribute it. No warranty is provided.
