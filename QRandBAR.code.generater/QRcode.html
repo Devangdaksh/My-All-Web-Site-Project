@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-------------
+    Meta tags 
+    ------------->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QR code generator homepage" />
+    <meta name="author" content="Devang" />
+
+    <!----------------
+    Title and Tailwind CSS
+    ----------------->
+    <title>QBAR - QR Code Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="font-sans bg-gray-900 text-white min-h-screen transition-colors duration-300"
+  >
+    <!-------------
+    Navigation bar
+    --------------->
+    <nav
+      class="w-full bg-indigo-900 text-white px-4 py-3 flex flex-col sm:flex-row items-center justify-between fixed top-0 left-0 z-50 shadow-md"
+    >
+      <h1 class="text-xl font-bold tracking-wide uppercase text-center">
+        <a href="homepage.html">QBAR.com</a>
+      </h1>
+      <ul class="flex gap-4 mt-2 sm:mt-0">
+        <li>
+          <a
+            href="homepage.html"
+            class="text-white px-3 py-1 rounded hover:bg-blue-700 hover:text-yellow-300 transition"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="Barcode.html"
+            class="text-white px-3 py-1 rounded hover:bg-blue-700 hover:text-yellow-300 transition"
+            >BAR Code Generator</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!------------
+     Spacer for fixed navbar
+     ---------------------->
+    <div class="h-20"></div>
+
+    <!-------------------------
+    Welcome section
+    -------------------------->
+    <section class="text-center px-4 mt-10">
+      <h2
+        class="text-2xl font-semibold text-gray-100 uppercase tracking-wider mb-2"
+      >
+        Welcome to QBAR.com
+      </h2>
+      <p class="text-green-400 mb-2">
+        Your one-stop solution for generating QR codes and BAR codes.
+      </p>
+      <p class="text-green-400 mb-4">
+        Choose a generator below to get started.
+      </p>
+    </section>
+
+    <!-------------------
+    How it works section
+    -------------------------->
+    <section
+      class="mt-16 px-6 max-w-4xl mx-auto flex flex-col md:flex-row gap-8"
+    >
+      <!-- How QR Code Generator Works -->
+      <div class="flex-1 bg-gray-800 rounded-lg p-6 shadow">
+        <h2 class="text-2xl font-semibold text-gray-100 mb-2 text-center">
+          How QR Code Generator Works
+        </h2>
+        <ol
+          class="list-decimal list-inside text-green-400 text-left space-y-2 mb-6"
+        >
+          <li>Enter the text or URL you want to encode in the QR code.</li>
+          <li>Click on the "Generate QR Code" button.</li>
+          <li>Your QR code will be generated and displayed below.</li>
+          <li>Download or share your QR code as needed.</li>
+        </ol>
+      </div>
+      <!--------------
+     URL Pasting and generating Qr code  
+     --------------------->
+      <div
+        class="flex-1 bg-gray-800 rounded-lg p-6 shadow flex flex-col justify-between h-full"
+      >
+        <h2 class="text-2xl font-semibold text-gray-100 mb-2 text-center">
+          How to Generate QR Code
+        </h2>
+        <ol
+          class="list-decimal list-inside text-green-400 text-left space-y-2 mb-6"
+        >
+          <li>Paste your URL below.</li>
+          <li>Click "Generate" to create your QR code.</li>
+        </ol>
+        <!----------------------
+      QR code output above input and button
+      -------------------------->
+        <div id="qrOutput" class="text-center mb-4"></div>
+        <div class="mt-auto">
+          <div class="flex items-center space-x-2 p-4">
+            <!----------
+            Input field for URL
+            ------------------->
+            <label for="urlInput" class="sr-only">Enter URL</label>
+            <input
+              type="text"
+              id="urlInput"
+              placeholder="Paste URL here..."
+              class="border border-green-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-indigo-900 text-black bg-white"
+            />
+
+            <!----------
+            Generate button
+            ------------------->
+            <button
+              onclick="GenerateQr()"
+              class="bg-indigo-900 hover:bg-indigo-800 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-------------------
+    Social media links section
+    -------------------------->
+    <div class="flex justify-center gap-5 flex-wrap mt-8">
+      <!-- Instagram -->
+      <a
+        href="https://www.instagram.com/dev_daksh__/"
+        class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md transition-transform duration-300 cursor-pointer hover:scale-110 group"
+      >
+        <span
+          class="absolute bottom-[120%] left-1/2 -translate-x-1/2 bg-pink-600 text-white px-2.5 py-1 rounded text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-100"
+        >
+          Instagram
+        </span>
+        <svg
+          class="w-5 h-5 text-black group-hover:fill-pink-600"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <rect
+            x="2"
+            y="2"
+            width="20"
+            height="20"
+            rx="6"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="5"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle cx="17" cy="7" r="1.2" fill="currentColor" />
+        </svg>
+      </a>
+      <!-- LinkedIn -->
+      <a
+        href="https://www.linkedin.com/in/devang-kumar-41642a366"
+        class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md transition-transform duration-300 cursor-pointer hover:scale-110 group"
+      >
+        <span
+          class="absolute bottom-[120%] left-1/2 -translate-x-1/2 bg-blue-700 text-white px-2.5 py-1 rounded text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-100"
+        >
+          LinkedIn
+        </span>
+        <svg
+          class="w-5 h-5 text-black group-hover:fill-blue-700"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20.447 20.452h-3.554v-5.8c0-1.384-.027-3.164-1.928-3.164-1.93 0-2.228 1.51-2.228 3.07v5.894H9.183V9h3.413v1.6h.047c.477-.9 1.64-1.85 3.36-1.85 3.6 0 4.267 2.37 4.267 5.46v6.24zM5.337 7.5c-1.14 0-2.063-.92-2.063-2.06 0-1.14.923-2.063 2.063-2.063 1.14 0 2.062.923 2.062 2.063 0 1.14-.922 2.06-2.062 2.06zm1.78 12.952H3.557V9h3.56v11.452zM22.225 0H1.775C.796 0 0 0 .796 0 1.775v20.45C0 23.204.796 24 1.775 24h20.45c.98 0 1.775-.796 1.775-1.775V1.775C24 .796 23.204 0 22.225 0z"
+          />
+        </svg>
+      </a>
+      <!-- GitHub -->
+      <a
+        href="https://github.com/dev-daksh"
+        class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md transition-transform duration-300 cursor-pointer hover:scale-110 group"
+      >
+        <span
+          class="absolute bottom-[120%] left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2.5 py-1 rounded text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-100"
+        >
+          GitHub
+        </span>
+        <svg
+          class="w-5 h-5 text-black group-hover:fill-gray-800"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 5.25 3.438 9.688 8.207 11.285.6.111.793-.261.793-.577 0-.287-.011-1.243-.017-2.25-3.338.724-4.042-1.607-4.042-1.607-.546-1.384-1.333-1.754-1.333-1.754-1.089-.743.083-.728.083-.728 1.205.085 1.838 1.237 1.838 1.237 1.07 1.831 2.805 1.303 3.49.996.108-.775.419-1.303.763-1.603-2.665-.303-5.467-1.333-5.467-5.933 0-1.313.469-2.386 1.236-3.22-.124-.303-.536-1.53.117-3.185 0 0 1.008-.322 3.301 1.23A11.53 11.53 0 0112 4.8c1.025.004 2.052.138 3.036.404 2.293-1.552 3.301-1.23 3.301-1.23.653 1.655.241 2.882.118 3.185.769.834 1.236 1.907 1.236 3.22 0 4.607-2.805 5.63-5.475 5.93.43.372.815 1.102.815 2.222 0 1.606-.014 2.91-.017 3.303 0 .319.192.693.798.577C20.563 21.688 24 17.25 24 12c0-6.627-5.373-12-12-12z"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <!----------------
+    Footer section with copyright and creator information
+    ------------------>
+    <div class="mt-10 px-4 max-w-3xl mx-auto text-center">
+      <h2 class="text-xl font-semibold text-gray-100 mb-2">Connect with Us</h2>
+      <p class="mb-2">
+        Follow us on social media to stay updated with the latest features and
+        improvements.
+      </p>
+      <p class="mb-6">
+        We value your feedback and suggestions. Feel free to reach out to us
+        through our social media channels.
+      </p>
+    </div>
+    <footer class="mt-10 text-center text-gray-500">
+      <p class="text-sm">© 2025 QBAR.com. All rights reserved.</p>
+      <p class="text-xs">Created by Devang</p>
+    </footer>
+
+    <!--------------------------
+    Additional information section and thank you message
+    --------------------------->
+    <div class="mt-10 px-4 max-w-3xl mx-auto text-center">
+      <p class="text-gray-400 mb-4">
+        Thank you for using QBAR.com! We hope you find our QR code generator
+        useful. If you have any feedback or suggestions, feel free to reach out.
+      </p>
+      <p class="text-gray-400">
+        QBAR is designed to be user-friendly and efficient. You can generate QR
+        codes and BAR codes quickly and easily.
+      </p>
+      <p class="text-gray-400">
+        Whether you need a QR code for a website, contact information, or a BAR
+        code for products, QBAR has got you covered.
+      </p>
+      <p class="text-gray-400">
+        If you have any questions or feedback, feel free to reach out to us!
+      </p>
+      <h2 class="text-xl font-semibold text-gray-100 mt-6 mb-2">Thank You!</h2>
+      <p class="text-gray-400">
+        Thank you for using QBAR. We hope you enjoy our service!
+      </p>
+    </div>
+
+    <!--------------
+    QRCode.js library 
+  ------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-------------
+     Your custom script 
+     ------------------->
+    <script src="qrcode.js"></script>
+  </body>
+</html>
