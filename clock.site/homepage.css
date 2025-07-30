@@ -1,0 +1,549 @@
+/* -------------------------------------------
+   BASE STYLES
+------------------------------------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 24px 0 12px 0;
+    color: #0072c6;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #7aaa20;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+/* -------------------------------------------
+   FEATURE SECTION STYLING
+------------------------------------------- */
+.features-section {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* -------------------------------------------
+   NAVIGATION BAR (Fixed Top)
+------------------------------------------- */
+.navbar {
+    width: 100vw;
+    background: #007BFF;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.navbar-links li {
+    display: inline;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.2s ease , background 0.2s ease;
+}
+
+.navbar-links a:hover {
+    color: #ffd700;
+    background: rgba(255,255,255,0.1);
+}
+
+/* -------------------------------------------
+   RESPONSIVE NAVIGATION
+------------------------------------------- */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.7rem 0.5rem;
+    }
+
+    .navbar-links {
+        width: 100%;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    .navbar-links a {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* -------------------------------------------
+   HEADER & BREADCRUMB NAVIGATION
+------------------------------------------- */
+.header {
+    background: #007BFF;
+    padding: 1.2rem 1.5rem 0.7rem 1.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.breadcrumb-nav {
+    background: #007BFF;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.breadcrumb {
+    color: #fff;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb li:last-child {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+/* Dark Mode Breadcrumb */
+body.dark-mode .breadcrumb-nav {
+    background: #007BFF;
+}
+body.dark-mode .breadcrumb li,
+body.dark-mode .breadcrumb a {
+    color: #e0e0e0;
+}
+body.dark-mode .breadcrumb li:last-child {
+    color: #66aaff;
+}
+
+/* -------------------------------------------
+   TOOL BUTTONS
+------------------------------------------- */
+.tool-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.tool-buttons a {
+    text-decoration: none;
+}
+
+.tool-buttons button {
+    background-color: #007BFF;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.tool-buttons button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 86, 179, 0.3);
+}
+
+.tool-buttons button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+}
+
+/* -------------------------------------------
+   SOCIAL MEDIA ICON STYLES
+------------------------------------------- */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon span.tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e91e63;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.social-icon:hover span.tooltip {
+    opacity: 1;
+}
+
+.social-icon:hover svg {
+    fill: #e91e63;
+}
+
+/* -------------------------------------------
+   THEME TOGGLE BUTTON
+------------------------------------------- */
+.theme-toggle-btn {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #007BFF;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #007BFF;
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.2);
+}
+
+/* -------------------------------------------
+   DARK MODE STYLES
+------------------------------------------- */
+.container.dark-mode {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
+
+.container.dark-mode h1,
+.container.dark-mode h2,
+.container.dark-mode h3,
+.container.dark-mode p {
+    color: #f4f4f4;
+}
+
+.container.dark-mode a {
+    color: #007BFF;
+}
+
+.container.dark-mode .navbar,
+.container.dark-mode .breadcrumb-nav {
+    background: #0072c6;
+}
+
+.container.dark-mode .tool-buttons button {
+    background-color: #0056b3;
+}
+
+.container.dark-mode .tool-buttons button:hover {
+    background-color: #007BFF;
+}
+
+.container.dark-mode .social-icon {
+    background-color: #2c2c2c;
+}
+
+.container.dark-mode .social-icon:hover {
+    background-color: #3a3a3a;
+}
+
+.container.dark-mode .social-icon span.tooltip {
+    background-color: #333;
+}
+
+.container.dark-mode .theme-toggle-btn {
+    background-color: #0056b3;
+}
+
+.container.dark-mode .theme-toggle-btn:hover {
+    background-color: #007BFF;
+}
+
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
+
+body.dark-mode a {
+    color: #66aaff;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .breadcrumb-nav {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-mode .breadcrumb a {
+    color: #ccc;
+}
+
+body.dark-mode .breadcrumb li:last-child {
+    color: #ffd700;
+}
+
+body.dark-mode .tool-buttons button {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .tool-buttons button:hover {
+    background-color: #555;
+}
+
+body.dark-mode .theme-toggle-btn {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .theme-toggle-btn:hover {
+    background-color: #555;
+}
+
+body.dark-mode div {
+    background-color: #232323;
+    color: #f4f4f4;
+}
+
+/* -------------------------------------------
+   PRINT STYLES
+------------------------------------------- */
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .navbar, .theme-toggle-btn {
+        display: none !important;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    h1, h2, h3, p {
+        color: #000;
+    }
+}
+
+/* -------------------------------------------
+   RESPONSIVE LAYOUT (TABLET + MOBILE)
+------------------------------------------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        text-align: center;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .tool-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .tool-buttons button {
+        width: 100%;
+        max-width: 300px;
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .features-section {
+        width: 100%;
+        padding: 1rem 0.5rem;
+    }
+
+    .features-section ul {
+        padding-left: 1.2rem;
+        text-align: left;
+    }
+
+    .features-section li {
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .features-section li:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #007BFF;
+    }
+}
+
+/*---------------- 
+  Popup Overlay 
+-----------------*/
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/*---------------- 
+  Popup Box 
+-----------------*/
+.popup-box {
+  background: linear-gradient(to bottom right, #fda085, #f6d365);
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  font-family: sans-serif;
+}
+
+/*---------------- 
+  Close Button 
+-----------------*/
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/*---------------- 
+  Action Button 
+-----------------*/
+.action-btn {
+  margin-top: 1rem;
+  background-color: white;
+  border: 2px solid #333;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.action-btn:hover {
+  background-color: #f0f0f0;
+}

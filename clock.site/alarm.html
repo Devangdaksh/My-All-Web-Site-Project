@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---------------
+    Basic meta tags for character encoding and responsive layout 
+    ------------------>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+    <!-------------------
+    Page Title and SEO Metadata
+    ------------------>
+    <title>Alarm Clock</title>
+    <meta name="author" content="Devang">
+    <meta name="description" content="Alarm Clock - Set alarms and wake up on time.">
+    <meta name="keywords" content="alarm clock, wake up, time, productivity">
+
+    <!--------------
+    External Stylesheet and Favicon
+    ------------------>
+    <link rel="stylesheet" href="alarm.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <!--------------
+    Top Navigation Bar 
+    ------------------>
+    <nav class="navbar">
+        <div class="navbar-brand">⏰ Timer App</div>
+        <ul class="navbar-links">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="alarm.html">Alarm</a></li>
+            <li><a href="stopwatch.html">Stopwatch</a></li>
+            <li><a href="timer.html">Timer</a></li>
+            <li><a href="liveclock.html">Live Clock</a></li>
+        </ul>
+    </nav>
+
+    <!--------------
+    -Breadcrumb Navigation for Contextual Page Trail 
+    ------------------->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb" style="margin: 1.2rem 0 0 0.5rem;">
+        <ol class="breadcrumb">
+            <li><a href="homepage.html">Home</a></li>
+            <li>&gt;</li>
+            <li><a href="alarm.html">Alarm</a></li>
+        </ol>
+    </nav>
+
+    <!---------------
+    Main Container for Alarm Clock UI 
+    --------------------->
+    <div class="container">
+
+        <h1>Alarm Clock</h1>
+        <!---------------
+        Toggle Button for Dark Mode
+        ------------------->
+        <button class="dark-toggle-btn" id="darkModeToggle">🌙</button>
+
+        <!-----------------
+        Clock Display: Both Analog and Digital
+        ------------------>
+        <div class="timer-container">
+
+            <!-----------------
+            Analog Clock Layout with Hands
+            ------------------->
+            <div id="analogClock" class="analog-clock">
+                <div class="hand hour" id="hourHand"></div>
+                <div class="hand minute" id="minuteHand"></div>
+                <div class="hand second" id="secondHand"></div>
+                <div class="center-dot"></div>
+            </div>
+
+            <!-----------------
+            Digital Clock Display
+            ------------------->
+            <div id="clockDisplay" class="timer-display">00:00:00</div>
+        </div>
+
+        <!---------------------
+        Alarm Input Section
+        --------------------->
+        <div class="alarm-set">
+            <label for="alarmTime">Set Alarm:</label>
+            <input type="time" id="alarmTime" required>
+        </div>
+
+        <!-------------
+        Input Field for Naming the Alarm
+        ------------------->
+        <div style="margin-top: 0.5rem;">
+            <label for="alarmLabel">Alarm Name:</label>
+            <input type="text" id="alarmLabel" placeholder="e.g. Morning Jog">
+        </div>
+
+        <!----------------
+        Buttons to Set and Clear the Alarm
+        ------------------------->
+        <div class="controls">
+            <button id="setAlarmBtn">Set Alarm</button>
+            <button id="clearAlarmBtn" disabled>Clear Alarm</button>
+        </div>
+
+        <!------------------
+        Dynamic Status Message for Alarm
+        ------------------->
+        <div id="alarmStatus"></div>
+
+        <!------------------
+        Scheduled Alarms List
+        ------------------->
+        <div id="alarmSchedule" class="alarm-schedule">
+            <h3>Alarm Schedule</h3>
+            <ul id="alarmList"></ul>
+        </div>
+
+        <!------------------
+        Modal Popup when Alarm Rings
+        ------------------->
+        <div id="alarmModal" class="modal">
+            <div class="modal-content">
+                <h2>⏰ Alarm Ringing!</h2>
+                <p id="modalLabel"></p>
+                <button id="stopAlarmBtn">Stop Alarm</button>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------
+    Audio Elements for Alarm and Background Music
+    ------------------->
+    <audio id="alarmSound" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" preload="auto"></audio>
+    <audio id="backgroundMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
+</body>
+    <!--------------------------
+    Footer section with contact information and social links
+    --------------------------->
+    <footer class="footer">
+        <p>&copy; 2025 Timer App.com. All rights reserved.</p>
+        <p>Created by Devang</p>
+        <p>Contact: <a href="mailto:devangkumarprajapati1908@gmail.com">devangkumarprajapati1908@gmail.com</a></p>
+
+        <!----------------------
+        Social media links with icons and tooltips
+        --------------------------->
+        <p>Follow us on social media for updates and tips:</p>
+    
+        <div class="social-icons">
+
+            <!-------------------------
+            Instagram 
+            --------------------------->
+            <a href="https://www.instagram.com/dev_daksh__/" class="social-icon" target="_blank" rel="noopener">
+                <span class="tooltip">Instagram</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+
+            <!--------------------------
+            Facebook
+            --------------------------->
+            <a href="https://www.facebook.com/devangkumarprajapati1908" class="social-icon" target="_blank" rel="noopener">
+                <span class="tooltip">Facebook</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 8h-2a2 2 0 0 0-2 2v2H10v3h2v5h3v-5h2.1l.4-3H15v-1c0-.28.22-.5.5-.5H17V8z"></path>
+                </svg>
+            </a>
+
+            <!--------------------------
+            LinkedIn
+            --------------------------->
+            <a href="https://www.linkedin.com/in/devang-kumar-prajapati-1908/" class="social-icon" target="_blank" rel="noopener">
+                <span class="tooltip">LinkedIn</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <line x1="8" y1="11" x2="8" y2="16"></line>
+                    <line x1="8" y1="8" x2="8" y2="8"></line>
+                    <line x1="12" y1="16" x2="12" y2="11"></line>
+                    <path d="M16 16v-3a2 2 0 0 0-4 0"></path>
+                </svg>
+            </a>
+
+            <!--------------------------
+            YouTube
+            --------------------------->
+            <a href="https://www.youtube.com/@devangkumarprajapati1908" class="social-icon" target="_blank" rel="noopener">
+                <span class="tooltip">YouTube</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube">
+                    <rect x="2" y="4" width="20" height="16" rx="4" ry="4"></rect>
+                    <polygon points="10 9 16 12 10 15 10 9"></polygon>
+                </svg>
+            </a>
+            <!--------------------------
+            Github
+            --------------------------->
+            <a href="https://github.com/Devangdaksh" class="social-icon" target="_blank" rel="noopener">
+                <span class="tooltip">GitHub</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                    <path d="M12 2C6.13 2 2 6.13 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85.004 1.71.115 2.51.337 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.41-.01 2.74 0 .27.16.58.67.48A10.01 10.01 0 0 0 22 12c0-5.87-4.73-10-10-10z"/>
+                </svg>
+            </a>
+        </div>
+        </p>
+    </footer>
+
+    <!--------------------------
+    Additional information section with thank you message and study tips
+    --------------------------->
+    <h2>Additional Information</h2>
+    <p>We appreciate your support and feedback. If you have any suggestions or need assistance, feel free to reach out to us.</p>
+    <p>Here are some tips to enhance your study sessions:</p>
+    <p>Thank you for choosing StudyTimer.com to enhance your study productivity!</p>
+    <p>We hope you find our tools helpful in managing your study time effectively.</p>
+    <p>Happy studying!</p>
+
+    <!------------------------------ 
+    JavaScript file for homepage functionality 
+     --------------------------->
+    <script src="alarm.js"></script>
+</html>
+

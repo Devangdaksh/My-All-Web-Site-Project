@@ -1,0 +1,492 @@
+/* -------------------------------------------
+   Base Styles
+------------------------------------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    transition: background 0.3s, color 0.3s;
+}
+h1, h2, h3, h4, h5, h6 {
+
+    margin: 0;
+    padding: 24px 0 12px 0; /* Consistent spacing for headings */
+    color: #0072c6; /* Primary heading color */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Consistent font for headings */
+    font-size: 1.5rem; /* Default heading size */
+    line-height: 1.4; /* Improved readability */
+    text-transform: uppercase; /* Consistent heading style */
+    letter-spacing: 0.05em; /* Slight letter spacing for headings */
+    text-align: center; /* Centered headings for better layout */
+}
+p {
+    text-align: center; /* Centered paragraphs for better layout */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Consistent font for paragraphs */
+    font-size: 1rem; /* Default paragraph size */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Improved readability */
+    color: #7aaa20; /* Dark text for better contrast */
+}
+a {
+    color: #007BFF; /* Primary link color */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+/* -------------------------------------------
+   Navigation Bar (Fixed Top)
+------------------------------------------- */
+.navbar {
+    width: 100vw;
+    background: #007BFF; /* Blue background */
+    color: #fff;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-sizing: border-box;
+}
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+.navbar-links li {
+    display: inline;
+}
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+.navbar-links a:hover {
+    color: #ffd700; /* Gold on hover */
+    background: rgba(255,255,255,0.1);
+}
+
+/*--------------------------
+Responsive styles for navbar (mobile screens) 
+----------------------------*/
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.7rem 0.5rem;
+    }
+    .navbar-links {
+        width: 100%;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+    .navbar-links a {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/*--------------------
+Ensure body content doesn't hide behind fixed navbar 
+------------------------------*/
+body {
+    padding-top: 3.5rem;
+    box-sizing: border-box;
+}
+
+/* -------------------------------------------
+   Page Header & Breadcrumb Navigation
+------------------------------------------- */
+.header {
+    background: #0072c6;
+    color: #fff;
+    padding: 1.2rem 1.5rem 0.7rem 1.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.breadcrumb-nav {
+    background: #0072c6;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0 0 8px 8px;
+}
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    margin: 0;
+    padding: 0;
+}
+.breadcrumb li {
+    color: #fff;
+}
+.breadcrumb li:last-child {
+    color: #ffd700; /* Highlight current page */
+    font-weight: bold;
+}
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+/* -------------------------------------------
+   Main Clock Display Container
+------------------------------------------- */
+.main-content {
+    max-width: 500px;
+    margin: 2.5rem auto 0 auto;
+    padding: 2rem 1rem 1.5rem 1rem;
+    background: #f8fafd;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.clock-title {
+    font-size: 1.3rem;
+    color: #0072c6;
+    margin-bottom: 1.2rem;
+    font-weight: bold;
+}
+
+/* -------------------------------------------
+   Clock Layout Wrapper
+------------------------------------------- */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* -------------------------------------------
+   Analog Clock Styles
+------------------------------------------- */
+.analog-clock {
+    width: 240px;
+    height: 240px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    border: 4px solid #007BFF;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+.hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 6px;
+}
+.hand.hour {
+    width: 10px;
+    height: 60px;
+    background: #ffb347;
+    z-index: 3;
+}
+.hand.minute {
+    width: 6px;
+    height: 90px;
+    background: #007BFF;
+    z-index: 2;
+}
+.hand.second {
+    width: 3px;
+    height: 110px;
+    background: #e74c3c;
+    z-index: 1;
+}
+.center-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #222;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 2px solid #fff;
+}
+
+/* -------------------------------------------
+   Digital Clock Display
+------------------------------------------- */
+.digital-clock {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 2.2rem;
+    color: #222;
+    text-shadow: 0 2px 8px #fff, 0 0 2px #007BFF;
+    letter-spacing: 0.1em;
+    background: rgba(0,0,0,0.06);
+    padding: 0.6rem 1.5rem;
+    border-radius: 1.5rem;
+    margin-top: 0.5rem;
+    user-select: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* -------------------------------------------
+   Date and Location Text
+------------------------------------------- */
+.date-display {
+    font-size: 1.2rem;
+    color: #007BFF;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+body.dark-mode .date-display {
+    color: #66aaff;
+}
+.location-display {
+    font-size: 1.1rem;
+    color: #007BFF;
+    margin-top: 1.2rem;
+    text-align: center;
+}
+body.dark-mode .location-display {
+    color: #66aaff;
+}
+
+/* -------------------------------------------
+   AM/PM Toggle Control
+------------------------------------------- */
+.am-pm-toggle {
+    margin-top: 0.7rem;
+    font-size: 1rem;
+    color: #222;
+}
+body.dark-mode .am-pm-toggle {
+    color: #e0e0e0;
+}
+.am-pm-toggle input[type="checkbox"] {
+    margin-right: 0.4em;
+}
+
+/* -------------------------------------------
+   Dark Mode Styles
+------------------------------------------- */
+body.dark-mode {
+    background: #181a1b;
+    color: #e0e0e0;
+}
+body.dark-mode .navbar {
+    background: #23272a;
+    color: #e0e0e0;
+}
+body.dark-mode .navbar-links a {
+    color: #e0e0e0;
+}
+body.dark-mode .navbar-links a:hover {
+    color: #66aaff;
+}
+body.dark-mode .analog-clock {
+    background: #23272a;
+    border-color: #333;
+}
+body.dark-mode .hand.hour {
+    background: #ffb347;
+}
+body.dark-mode .hand.minute {
+    background: #66aaff;
+}
+body.dark-mode .hand.second {
+    background: #ff7675;
+}
+body.dark-mode .center-dot {
+    background: #e0e0e0;
+    border-color: #23272a;
+}
+body.dark-mode .digital-clock {
+    color: #e0e0e0;
+    background: rgba(0,0,0,0.18);
+    text-shadow: 0 2px 8px #222, 0 0 2px #fff;
+}
+
+/* -------------------------------------------
+   Dark Mode Toggle Button
+------------------------------------------- */
+.dark-toggle-btn {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #007BFF;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.dark-toggle-btn:hover {
+    background: #0056b3;
+}
+
+/* -------------------------------------------
+   Mobile Responsiveness
+------------------------------------------- */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.7rem 0.5rem;
+    }
+    .navbar-links {
+        width: 100%;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+    .navbar-links a {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.6rem;
+    }
+    .analog-clock {
+        width: 160px;
+        height: 160px;
+    }
+    .hand.hour {
+        height: 38px;   /* Reduced from 60px */
+    }
+    .hand.minute {
+        height: 60px;   /* Reduced from 90px */
+    }
+    .hand.second {
+        height: 75px;   /* Reduced from 110px */
+    }
+    .digital-clock {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .main-content {
+        margin-top: 1.2rem;
+        padding: 1rem 0.2rem 1rem 0.2rem;
+    }
+    .header, .breadcrumb-nav {
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+    }
+}
+
+/* -------------------------------------------
+   SOCIAL MEDIA ICON STYLES
+------------------------------------------- */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon span.tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e91e63;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.social-icon:hover span.tooltip {
+    opacity: 1;
+}
+
+.social-icon:hover svg {
+    fill: #e91e63;
+}
+
+/* --------------------
+MODAL STYLES
+-------------------- */
+.modal {
+    display: none; /* Default hidden */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    color: #000;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    text-align: center;
+    max-width: 300px;
+}
+
+body.dark-mode .modal-content {
+    background: #23272a;
+    color: #e0e0e0;
+}
+
+

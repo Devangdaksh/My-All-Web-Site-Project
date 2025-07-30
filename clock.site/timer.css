@@ -1,0 +1,698 @@
+/* --------------------
+Base Styles
+-------------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    transition: background 0.3s, color 0.3s;
+    padding: 3.5rem 20px 20px 20px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 24px 0 12px 0;
+    color: #0072c6;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 2rem; 
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    min-height: 3.5rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 600; 
+    border-bottom: 2px solid #ccc;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+p {
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #7aaa20;
+}
+
+/* --------------------
+Form Inputs & Buttons
+-------------------- */
+input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background: #007BFF;
+    color: white;
+}
+
+input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+textarea {
+    width: 180px;
+    resize: none;
+}
+
+button {
+    padding: 10px 16px;
+    font-size: 1rem;
+    background: #0072c6;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005ea6;
+}
+
+/* --------------------
+Timer List & Timer Box
+-------------------- */
+.timers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.timer-box {
+    background: #0072c6;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.label-time {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.timer-label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.timer-time {
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* --------------------
+Progress Bar
+-------------------- */
+.progress {
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 100%;
+    background: limegreen;
+    transition: width 1s linear, background-color 0.3s;
+}
+
+#hours, #minutes, #seconds, #label {
+    color: limegreen !important;    
+}
+
+/* --------------------
+ Container Styling
+-------------------- */
+.container {
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------
+ Analog Clock Styles
+-------------------- */
+.timer-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.analog-clock {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border: 8px solid #eee;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 6px;
+}
+
+.hand.hour {
+    width: 8px;
+    height: 55px;
+    background: #ff8c00;
+    z-index: 3;
+}
+
+.hand.minute {
+    width: 6px;
+    height: 80px;
+    background: #007BFF;
+    z-index: 2;
+}
+
+.hand.second {
+    width: 3px;
+    height: 95px;
+    background: #e74c3c;
+    z-index: 1;
+}
+
+.center-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #333;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* --------------------
+ Digital Clock Display
+-------------------- */
+.timer-display {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* --------------------
+ Controls Section (Updated to reflect alarm.css)
+-------------------- */
+.controls button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.controls button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.controls button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --------------------
+ Alarm Input
+-------------------- */
+.alarm-set {
+    margin-bottom: 1rem;
+}
+
+.alarm-set input[type="time"] {
+    font-size: 1.1rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* --------------------
+ Alarm Schedule List
+-------------------- */
+.alarm-schedule {
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.alarm-schedule h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #007BFF;
+}
+
+#alarmList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#alarmList li {
+    background: #f8f9fa;
+    margin-bottom: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#alarmList .remove-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#alarmList .remove-btn:hover {
+    background: #c0392b;
+}
+
+/* --------------------
+Dark Mode Styling
+-------------------- */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .container {
+    background: #1e1e1e;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .analog-clock {
+    border-color: #333;
+    background: #2c2c2c;
+}
+
+.dark-mode .hand {
+    background: #e0e0e0;
+}
+
+.dark-mode .hand.hour {
+    background: #ffb300;
+}
+
+.dark-mode .hand.minute {
+    background: #3399ff;
+}
+
+.dark-mode .hand.second {
+    background: #ff6666;
+}
+
+.dark-mode .center-dot {
+    background: #e0e0e0;
+}
+
+.dark-mode .timer-display {
+    color: #e0e0e0;
+}
+
+.dark-mode .controls button {
+    background-color: #007BFF;
+}
+
+.dark-mode .controls button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.dark-mode .alarm-set input[type="time"] {
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+.dark-mode #alarmList li {
+    background: #2c2c2c;
+    border: 1px solid #444;
+}
+
+.dark-mode #alarmList .remove-btn {
+    background: #e74c3c;
+}
+
+.dark-mode #alarmList .remove-btn:hover {
+    background: #c0392b;
+}
+
+/* --------------------
+Body-specific Dark Mode
+-------------------- */
+body.dark-mode {
+    background-color: #181a1b;
+    color: #e0e0e0;
+}
+body.dark-mode .container {
+    background: #23272a;
+}
+body.dark-mode .analog-clock {
+    background: #23272a;
+}
+body.dark-mode .timer-display {
+    color: #e0e0e0;
+}
+body.dark-mode .controls button {
+    background-color: #444;
+}
+body.dark-mode .controls button:hover:not(:disabled) {
+    background-color: #222;
+}
+body.dark-mode .alarm-schedule h3 {
+    color: #66aaff;
+}
+body.dark-mode #alarmList li {
+    background: #23272a;
+}
+body.dark-mode #alarmList .remove-btn {
+    background: #c0392b;
+}
+body.dark-mode #alarmList .remove-btn:hover {
+    background: #a93226;
+}
+body.dark-mode .hand.hour {
+    background: #ffb347;
+}
+body.dark-mode .hand.minute {
+    background: #66aaff;
+}
+body.dark-mode .hand.second {
+    background: #ff7675;
+}
+body.dark-mode .center-dot {
+    background: #e0e0e0;
+}
+
+/* --------------------
+Navigation Bar (fixed at top)
+-------------------- */
+.navbar {
+    width: 100vw;
+    background: #007BFF;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.navbar-links li {
+    display: inline;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.navbar-links a:hover {
+    color: #ffd700;
+    background: rgba(255,255,255,0.1);
+}
+
+/* --------------------
+Responsive Navbar
+-------------------- */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.7rem 0.5rem;
+    }
+
+    .navbar-links {
+        width: 100%;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    .navbar-links a {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* --------------------
+Dark Mode Navigation Styling
+-------------------- */
+body.dark-mode .navbar {
+    background: #23272a;
+}
+body.dark-mode .navbar-links a {
+    color: #e0e0e0;
+}
+body.dark-mode .navbar-links a:hover {
+    color: #66aaff;
+}
+
+/* --------------------
+Header & Breadcrumb Navigation
+-------------------- */
+.header {
+    background: #007BFF;
+    padding: 1.2rem 1.5rem 0.7rem 1.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.breadcrumb-nav {
+    background: #007BFF;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.breadcrumb {
+    color: #fff;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb li:last-child {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+/* Dark Mode Breadcrumb */
+body.dark-mode .breadcrumb-nav {
+    background: #007BFF;
+}
+body.dark-mode .breadcrumb li,
+body.dark-mode .breadcrumb a {
+    color: #e0e0e0;
+}
+body.dark-mode .breadcrumb li:last-child {
+    color: #66aaff;
+}
+
+/* --------------------
+Dark Mode Toggle Button
+-------------------- */
+.dark-toggle-btn {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #007BFF;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.dark-toggle-btn:hover {
+    background: #0056b3;
+}
+
+/* -------------------------------------------
+   SOCIAL MEDIA ICON STYLES
+------------------------------------------- */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon span.tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e91e63;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.social-icon:hover span.tooltip {
+    opacity: 1;
+}
+
+.social-icon:hover svg {
+    fill: #e91e63;
+}
+
+/* --------------------
+MODAL STYLES
+-------------------- */
+.modal {
+    display: none; /* Default hidden */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    color: #000;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    text-align: center;
+    max-width: 300px;
+}
+
+body.dark-mode .modal-content {
+    background: #23272a;
+    color: #e0e0e0;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #23272a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #444 !important;
+}
+
