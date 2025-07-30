@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!---------------
+     Meta tags
+    ----------------->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!------------
+    Font Awesome icons CDN
+    ----------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!--------------
+    Tailwind CSS CDN
+    ----------------->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!----------------
+    Tailwind custom config
+    ----------------->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              customBlue: '#0ea5e9' // custom blue color (optional use)
+            }
+          }
+        }
+      }
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] flex justify-center items-center min-h-screen font-poppins p-4">
+
+    <!-----------------
+    Weather card container
+    ----------------->
+    <div class="card hover:shadow-[1px_1px_20px_rgba(255,255,255,0.4)] xsm:mx-4 xsm-sm:w-[370px] md:w-[420px] bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 flex flex-col gap-5 text-white transition-all duration-300">
+
+        <!-- App title -->
+        <h1 class="xsm-sm:text-2xl md:text-3xl xsm:text-xl font-bold text-center font-montserrat tracking-wide">
+          🌤️ Weather Forecast
+        </h1>
+
+        <!-- Search bar section -->
+        <div class="relative">
+            <!-- Search input + button -->
+            <div class="search flex items-center justify-between bg-white/10 border border-white/20 rounded-full px-5 xsm-sm:py-2 mt-1 xsm:py-1">
+                <input class="h-10 text-white placeholder-white/60 bg-transparent outline-none border-none w-full pr-3" placeholder="Enter city name...">
+                <button type="button">
+                    <i class="fa-solid fa-magnifying-glass text-white hover:text-gray-600 text-lg mr-2"></i>
+                </button>
+            </div>
+
+            <!-- Suggestions dropdown (JS will show/hide & populate this) -->
+            <ul class="suggestions absolute left-0 w-full bg-[#2d084dd5] border border-white/20 rounded-xl text-white z-10 max-h-60 overflow-y-auto hidden shadow-lg">
+            </ul>
+        </div>
+
+        <!-- Main weather info section -->
+        <div class="flex items-center justify-between mt-4">
+            <!-- Icon + temperature -->
+            <div class="flex flex-col items-center">
+                <img class="weather-icon ml-4 w-32" src="./images/rain.png" alt="">
+                <h1 class="temp text-3xl xsm-sm:text-5xl font-semibold mt-2 ml-4 xsm:text-4xl">22°C</h1>
+            </div>
+
+            <!-- City name + update text -->
+            <div class="flex flex-col items-end justify-center pr-3 text-right gap-1">
+                <h2 class="city text-3xl font-semibold max-w-[180px] break-words">Delhi</h2>
+                <p class="text-white/70 text-sm italic">Updated just now</p>
+            </div>
+        </div> 
+
+        <!-- Details section: humidity and wind -->
+        <div class="grid grid-cols-2 gap-4 mt-5">
+
+            <!-- Humidity card -->
+            <div class="flex items-center justify-center gap-3 bg-white/5 border border-white/20 rounded-xl py-3 px-4 shadow-inner">
+                <img class="h-6" src="./images/humidity.png" alt="">
+                <div>
+                    <div class="humidity text-xl font-medium">48%</div>
+                    <p class="text-xs text-white/60">Humidity</p>
+                </div>
+            </div>
+
+            <!-- Wind speed card -->
+            <div class="flex items-center justify-center gap-3 bg-white/5 border border-white/20 rounded-xl py-3 px-4 shadow-inner">
+                <img class="h-6" src="./images/wind.png" alt="">
+                <div>
+                    <div class="wind text-xl font-medium">15 km/h</div>
+                    <p class="text-xs text-white/60">Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------
+    Links to GitHub and LinkedIn using SVG icons, fixed at right bottom
+    ----------------------------->
+    <div class="fixed bottom-6 right-6 flex items-center justify-center gap-4 z-50">
+        <a href="https://github.com/Devangdaksh" target="_blank" aria-label="GitHub">
+            <!-- GitHub SVG icon -->
+            <svg class="h-6 w-6 fill-white hover:fill-gray-400 transition" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.012c0 4.425 2.867 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.37-1.342-3.37-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.646.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.025 2.747-1.025.546 1.378.202 2.397.099 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.339-.012 2.421-.012 2.75 0 .268.18.579.688.481C19.135 20.188 22 16.437 22 12.012 22 6.484 17.523 2 12 2z"/>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/devang-kumar-41642a366" target="_blank" aria-label="LinkedIn">
+            <!-- LinkedIn SVG icon -->
+            <svg class="h-6 w-6 fill-white hover:fill-blue-400 transition" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.867-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.601 2.002 3.601 4.604v5.592z"/>
+            </svg>
+        </a>
+    </div>
+
+</body>
+
+<!-------------
+JS logic for fetching and displaying weather
+----------------->
+<script src="Weather.js"></script>
+
+</html>
