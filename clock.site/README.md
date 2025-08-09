@@ -69,8 +69,13 @@ A modern, multi-tool web application for time management, including a live clock
 
 ## 🙏 Credits
 
-Created by **Devang**  
-📧 Contact: devangkumarprajapati1908@gmail.com
+Created by **Devang**
+
+**Contact:**  
+✉️ [Email](mailto:devangkumarprajapati1908@gmail.com)  
+📸 [Instagram](https://www.instagram.com/dev_daksh__/)  
+💼 [LinkedIn](https://www.linkedin.com/in/devang-kumar-41642a366)  
+🐙 [GitHub](https://github.com/Devangdaksh)
 
 ---
 
